@@ -1,0 +1,64 @@
+class Calculator:
+    # def __init__(self, x, y ):
+    #     self.x = x
+    #     self.y = y
+
+    def add(self,x,y):
+       return x+y
+
+    def sub(self,x,y):
+      return x - y
+
+    def mul(self,x,y):
+      return x* y
+    
+    def div(self,x,y):
+      try: 
+         z= x/y
+      except ZeroDivisionError:
+         z=0
+         
+      return z
+    
+def is_float(num):
+    try:
+      float(num)
+      return True
+    except ValueError:
+      return False      
+      
+
+while True:
+    int1 =(input("Enter first number: "))
+    if int1.isdigit() or is_float(int1):
+       int1=float(int1)
+       break 
+
+while True:
+   int2 =(input("Enter second number: "))
+   if int2.isdigit() or is_float(int2):
+      int2=float(int2)
+      break
+
+
+
+ 
+
+ 
+calc = Calculator()
+print("A: Addition")
+print("B: Subtraction")
+print("C: Multiplication")
+print("D: Division ")
+choice = (input("enter choice"))
+
+if choice == "A" or "a":
+   print(calc.add(int1,int2))
+elif choice == "B" or "b":
+   print(calc.sub(int1,int2))
+elif choice == "C" or "c":
+   print(calc.mul(int1,int2))
+elif choice == "D" or "d":
+   print(calc.div(int1,int2))
+else:
+   print("Invalid choice")
